@@ -117,9 +117,7 @@ const RetailerScreenAccount= ({navigation}) => {
            
 
             <Text style={style.white1}>Account Details</Text>
-            {/* <Text style={style.white}>Please Provide the following details to link</Text> */}
             <Text style={style.white2}>Please enter the following Details</Text>
-            {/* </View>  */}
        
             <TextInput
                 mode="outlined"

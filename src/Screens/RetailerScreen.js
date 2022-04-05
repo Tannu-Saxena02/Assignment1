@@ -56,29 +56,37 @@ const RetailerScreen = ({navigation}) => {
         setRetail(false);
       }
      if(isvaliduser==true&&Regis==true&&Retail==true)
-      return true;
+      post();
       else
       return false;
         }
-        const post = (Screen) => {
+        const post = () => {
           console.log("in");
           axios
-            .post('https://d1-slp-wp.supremelifeplatform.com/api/wbs-link-existing-retailer-mobile', {
-              "business_name": name,
-              "business_phone": Registerednumber,
-              "business_email": "",
-              "retailer_ccp_number": "",
-              "retailer_id_type": "IGT",
-              "retailer_id": Retailerid
+            .post('https://d1-slp-wp.supremelifeplatform.com/wp-json/api/wbs-link-existing-retailer-mobile', {
+              business_name: "Harbour View Football Club",
+              business_phone: "917668508432",
+              retailer_ccp_number: "",
+              retailer_id_type: "", // IGT, AMTOTE, ALTENAR
+              retailer_id: "100048",
             })
             .then(function (response) {
+              // if (response.data.message != null) {
+
+                // navigation.navigate('RetailerScreenAccount');
+
+                // if (response.data.message.successMessage.length>0)
+                // {
+                
+                // }
+              // }
               // handle success
               alert(JSON.stringify(response.data));
-              console.log("success.....");
-              console.log(Screen);
-             navigation.navigate(Screen);
+              console.log(response.data);
+              // console.log(Screen);
+            //  navigation.navigate(Screen);
 
-              // navigation.navigate(RetailerScreenAccount);
+              
             })
             .catch(function (error) {
               // handle error
@@ -236,7 +244,7 @@ const RetailerScreen = ({navigation}) => {
                     <Text style={style.valid}>Retailer ID cannot be empty</Text>
                     :null
                   } 
-            <TouchableOpacity style={style.btn1} onPress={()=>{ post('RetailerScreenAccount')}}>
+            <TouchableOpacity style={style.btn1} onPress={()=>{handleSubmit()}}>
            <View>
             <View style={style.flex}>
             <Image source={require('../Assests/btn_continue.png')} style={{  marginTop:'1%',marginRight:'4%'}}/>
