@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import RetailerScreen from '../Screens/RetailerScreen';
 import RetailerScreenAccount from '../Screens/RetailerScreenAccount';
 import { NavigationContainer } from '@react-navigation/native';
-
+import RetailerVerify from '../Screens/RetailerVerify';
 const Stack = createNativeStackNavigator();
 
 function StackNavigation() {
@@ -15,7 +15,7 @@ function StackNavigation() {
       <Stack.Navigator  screenOptions={{ headerShown: false}}>
         <Stack.Screen name="RetailerScreen" component={RetailerScreen}  />
          <Stack.Screen name="RetailerScreenAccount" component={RetailerScreenAccount}  /> 
-        {/* <Stack.Screen name="Screen3" component={Screen3}  />  */}
+        <Stack.Screen name="RetailerVerify" component={RetailerVerify}  /> 
         
 
       </Stack.Navigator>
